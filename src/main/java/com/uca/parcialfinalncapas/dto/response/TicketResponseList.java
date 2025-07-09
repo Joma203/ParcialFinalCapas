@@ -1,18 +1,17 @@
+
 package com.uca.parcialfinalncapas.dto.response;
 
-import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
-@Builder
 public class TicketResponseList {
-    private Long idTicket;
+    private Long id;
     private String titulo;
     private String descripcion;
     private String estado;
-    private String fecha;
-    private Long solicitanteId;
-    private Long soporteId;
+    private String correoUsuario;   // para filtrar en /my
+    private String correoSoporte;   // si lo incluyes
+    private LocalDateTime fecha;
 }

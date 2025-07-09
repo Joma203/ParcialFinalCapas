@@ -1,3 +1,4 @@
+
 package com.uca.parcialfinalncapas.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
@@ -5,12 +6,15 @@ import lombok.Data;
 
 @Data
 public class TicketCreateRequest {
-    @NotBlank(message = "El título no puede estar vacío")
+    @NotBlank
     private String titulo;
-    @NotBlank(message = "La descripción no puede estar vacía")
+
+    @NotBlank
     private String descripcion;
-    @NotBlank(message = "Debe indicar el correo del usuario")
+
+    @NotBlank
+    private String estado;
+
+
     private String correoUsuario;
-    @NotBlank(message = "Debe indicar el correo del técnico asignado")
-    private String correoSoporte;
 }

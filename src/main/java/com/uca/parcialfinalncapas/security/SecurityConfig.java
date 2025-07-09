@@ -1,6 +1,5 @@
 package com.uca.parcialfinalncapas.security;
 
-import com.uca.parcialfinalncapas.entities.User;
 import com.uca.parcialfinalncapas.repository.UserRepository;
 import com.uca.parcialfinalncapas.utils.JwtUtil;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableMethodSecurity
+@EnableMethodSecurity  // habilita @PreAuthorize
 public class SecurityConfig {
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
@@ -31,7 +30,7 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> {
-            User user = userRepository.findByCorreo(username)
+            var user = userRepository.findByCorreo(username)
                     .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
             String role = "ROLE_" + user.getNombreRol();
             return org.springframework.security.core.userdetails.User
@@ -75,10 +74,9 @@ public class SecurityConfig {
                 .authenticationProvider(authProvider)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/login", "/auth/register").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().authenticated()   // el resto queda para @PreAuthorize
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
 }

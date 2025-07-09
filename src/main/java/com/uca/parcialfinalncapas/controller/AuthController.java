@@ -1,3 +1,4 @@
+// src/main/java/com/uca/parcialfinalncapas/controller/AuthController.java
 package com.uca.parcialfinalncapas.controller;
 
 import com.uca.parcialfinalncapas.dto.request.AuthRequest;
@@ -24,6 +25,26 @@ public class AuthController {
     @Autowired private UserRepository userRepository;
     @Autowired private PasswordEncoder passwordEncoder;
 
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest req) {
+        if (userRepository.findByCorreo(req.getCorreo()).isPresent()) {
+            return ResponseEntity.badRequest().body("Error: correo ya registrado");
+        }
+        String rol = req.getNombreRol().toUpperCase();
+        if (!rol.equals("USER") && !rol.equals("TECH")) {
+            return ResponseEntity.badRequest().body("Error: nombreRol debe ser USER o TECH");
+        }
+        User nuevo = User.builder()
+                .nombre(req.getNombre())
+                .correo(req.getCorreo())
+                .password(passwordEncoder.encode(req.getPassword()))
+                .nombreRol(rol)
+                .build();
+        userRepository.save(nuevo);
+        String token = jwtUtil.generateToken(nuevo.getCorreo());
+        return ResponseEntity.ok(new AuthResponse(token));
+    }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest req) {
         try {
@@ -35,24 +56,6 @@ public class AuthController {
         }
         UserDetails user = userDetailsService.loadUserByUsername(req.getCorreo());
         String token = jwtUtil.generateToken(user.getUsername());
-        return ResponseEntity.ok(new AuthResponse(token));
-    }
-
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest req) {
-        if (userRepository.findByCorreo(req.getCorreo()).isPresent()) {
-            return ResponseEntity
-                    .badRequest()
-                    .body("Error: ese correo ya está registrado");
-        }
-        User nuevo = User.builder()
-                .nombre(req.getNombre())
-                .correo(req.getCorreo())
-                .password(passwordEncoder.encode(req.getPassword()))
-                .nombreRol("USER")
-                .build();
-        userRepository.save(nuevo);
-        String token = jwtUtil.generateToken(nuevo.getCorreo());
         return ResponseEntity.ok(new AuthResponse(token));
     }
 }
