@@ -1,0 +1,460 @@
+type: collection.insomnia.rest/5.0
+name: Parcial Final N-Capas
+meta:
+  id: wrk_b29a3cf6cea34b3684ae33852c1c165a
+  created: 1752027001004
+  modified: 1752027001004
+  description: ""
+collection:
+  - name: Parcial Final N-Capas
+    meta:
+      id: fld_0fa1851243fd434489ea861e49ae86ee
+      created: 1752022972383
+      modified: 1752026664506
+      sortKey: -1752022970742
+      description: ""
+    children:
+      - name: Tickets
+        meta:
+          id: fld_66fe6c3424d34958baeb174056667cc0
+          created: 1752022972384
+          modified: 1752022972384
+          sortKey: -1752022970741
+          description: ""
+        children:
+          - url: "{{baseUrl}}/api/tickets/1"
+            name: Delete Ticket
+            meta:
+              id: req_5d008bef28b14df8a345588ef80f134a
+              created: 1752022972385
+              modified: 1752027190771
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970740
+            method: DELETE
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyMDI3MTgwLCJleHAiOjE3NTIxMTM1ODB9.jIiPlsQUhoIFo4IWKCMmZEd2HH3-Up2G75_TSrDjKJI
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.baseurl }}/api/tickets"
+            name: Get All Tickets
+            meta:
+              id: req_6c8061bb2614444f81b8f0581e1e47ad
+              created: 1752022972386
+              modified: 1752026608313
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970739
+            method: GET
+            headers:
+              - name: ""
+                value: ""
+              - name: ""
+                value: ""
+            authentication:
+              type: bearer
+              disabled: false
+              token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyMDI1NDA2LCJleHAiOjE3NTIxMTE4MDZ9.ZCbhVOHDqYOITd5gxkS5gebz0gsvW-hOs3vsBtjpLfQ
+              prefix: ""
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{baseUrl}}/api/tickets"
+            name: Save Ticket
+            meta:
+              id: req_938f5d70f0fe444a86032100579b96fa
+              created: 1752022972386
+              modified: 1752027198396
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970738
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "titulo": "Ticket-06",
+                  "descripcion": "No me funciona encender la compu auxilio",
+                  "correoUsuario": "ldarevalo@uca.edu.sv",
+                  "correoSoporte": "dhurtado@uca.edu.sv"
+                }
+            parameters:
+              - name: id
+                value: "9"
+                disabled: false
+            headers:
+              - name: Country
+                value: "{{country}}"
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyMDI3MTgwLCJleHAiOjE3NTIxMTM1ODB9.jIiPlsQUhoIFo4IWKCMmZEd2HH3-Up2G75_TSrDjKJI
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{baseUrl}}/api/tickets/1"
+            name: Get Ticket By ID
+            meta:
+              id: req_2f3576ee594e44778c1e61768d815b3d
+              created: 1752022972394
+              modified: 1752029238399
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970737
+            method: GET
+            headers:
+              - name: Country
+                value: "{{country}}"
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{baseUrl}}/api/tickets"
+            name: Update Ticket
+            meta:
+              id: req_5014a7bd59de4dad81719a45ab194532
+              created: 1752022972395
+              modified: 1752029246777
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970736
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                    "id": 6,
+                    "descripcion": "Trabajando en eso",
+                    "estado": "IN_PROGRESS",
+                    "correoSoporte": "dhurtado@uca.edu.sv"
+                }
+            parameters:
+              - name: id
+                value: "9"
+                disabled: false
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: User
+        meta:
+          id: fld_7e05c636b9924b4c866b461098d426e0
+          created: 1752022972395
+          modified: 1752022972395
+          sortKey: -1752022970735
+          description: ""
+        children:
+          - url: "{{baseUrl}}/api/users/1"
+            name: Delete User
+            meta:
+              id: req_53ebe6b93a464b88a7198717b0957c61
+              created: 1752022972396
+              modified: 1752029268061
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970733
+            method: DELETE
+            headers:
+              - name: Country
+                value: "{{country}}"
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.baseurl }}/api/users/all"
+            name: Get All Users
+            meta:
+              id: req_df29774623db41938a410e5bd3812842
+              created: 1752022972396
+              modified: 1752029254441
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970734
+            method: GET
+            headers:
+              - name: Country
+                value: "{{country}}"
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{baseUrl}}/api/users"
+            name: Update User
+            meta:
+              id: req_abc52002ee2248909cbd1e67478f23ca
+              created: 1752022972397
+              modified: 1752029277540
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970732
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "id": 1,
+                  "nombre": "Luisa Arevalo",
+                  "correo": "ldarevalo@uca.edu.sv",
+                  "password": "password123",
+                  "nombreRol": "USER"
+                }
+            headers:
+              - name: Country
+                value: "{{country}}"
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{baseUrl}}/api/users/ldarevalo@uca.edu.sv"
+            name: Get User By Email
+            meta:
+              id: req_f4b5a44d5865407fb190c3e2ca117277
+              created: 1752022972397
+              modified: 1752029284643
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970731
+            method: GET
+            headers:
+              - name: Country
+                value: "{{country}}"
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{baseUrl}}/api/users"
+            name: Save User
+            meta:
+              id: req_aca880e8a3c54cd8974b130d1900933b
+              created: 1752022972398
+              modified: 1752029289689
+              isPrivate: false
+              description: ""
+              sortKey: -1752022970730
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "nombre": "David Hurtado",
+                  "correo": "dhurtado@uca.edu.sv",
+                  "password": "password456",
+                  "nombreRol": "TECH"
+                }
+            headers:
+              - name: Country
+                value: "{{country}}"
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: https://github.com/Joma203/ParcialFinalCapas
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Auth
+        meta:
+          id: fld_ccc823cc47d24fbeb321b51e2b803076
+          created: 1752025073154
+          modified: 1752025073154
+          sortKey: -1752025073154
+          description: ""
+        children:
+          - url: "{{ _.baseurl }}/auth/register"
+            name: Register
+            meta:
+              id: req_8aca87225e0641aabd96a33f1c4e6602
+              created: 1752025095018
+              modified: 1752026642282
+              isPrivate: false
+              description: ""
+              sortKey: -1752025095018
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                  "nombre": "Juan Pérez",
+                  "correo": "juan@example.com",
+                  "password": "123456"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.baseurl }}/auth/login"
+            name: Login
+            meta:
+              id: req_26c249e3f469495389ed7e679eebe842
+              created: 1752025343475
+              modified: 1752026684657
+              isPrivate: false
+              description: ""
+              sortKey: -1752025343475
+            method: POST
+            body:
+              mimeType: application/json
+              text: |
+                {
+                  "correo": "juan@example.com",
+                  "password": "123456"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+    environment:
+      baseUrl: ""
+      country: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_ff35b605631645dc9ba3c360d528510b
+    created: 1752022972400
+    modified: 1752022972400
+environments:
+  name: Base Environment
+  meta:
+    id: env_b5cb73a92b684664856041bec1597c65
+    created: 1752022972399
+    modified: 1752023133498
+    isPrivate: false
+  data:
+    baseurl: localhost:8080
+    "": ""
