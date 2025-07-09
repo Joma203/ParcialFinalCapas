@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:17
+    container_name: parcial-final-n-capas-db
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: supportdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    networks:
+      - parcial-final-n-capas-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: parcial-final-n-capas-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - parcial-final-n-capas-network
+    environment:
+      DATABASE_URL:  jdbc:postgresql://db:5432/supportdb
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: root
+      JWT_SECRET: 79b8769fa08cfddfdd234b42b5ce641f044a60ab345996133644b918727f9458
+      JWT_EXPIRATION_TIME: 86400000
+    volumes:
+      - ./logs:/app/logs
+
+networks:
+  parcial-final-n-capas-network:
+      name: demo-employees-network
+
+volumes:
+    postgres_data:
