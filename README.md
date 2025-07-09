@@ -7,7 +7,12 @@ Este repositorio contiene un proyecto para evaluar y practicar los conceptos de 
 - **Nombre del estudiante 2**: Raul Napoleon Caprile Ramos - 00006422
 - Sección: 02
 ---
-
+| Nombre        | Correo                                              | Contraseña | Rol  |
+| ------------- | --------------------------------------------------- | ---------- | ---- |
+| Cliente Uno   | user@demo.com               | 123456     | USER |
+| Técnico Dos   | tech@demo.com               | abcdef     | TECH |
+| Luis Darevalo | ldarevalo@uca.edu.sv | 123456     | USER |
+| Diego Hurtado | dhurtado@uca.edu.sv   | abcdef     | TECH |
 ## Sistema de Soporte Técnico
 
 ### Descripción
