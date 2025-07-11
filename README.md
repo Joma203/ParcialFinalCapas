@@ -13,6 +13,86 @@ Este repositorio contiene un proyecto para evaluar y practicar los conceptos de 
 | Técnico Dos   | tech@demo.com               | abcdef     | TECH |
 | Luis Darevalo | ldarevalo@uca.edu.sv | 123456     | USER |
 | Diego Hurtado | dhurtado@uca.edu.sv   | abcdef     | TECH |
+
+## Instrucciones para correr el proyecto
+1. Clonar el repositorio.
+2. Abrir proyecto en IntelliJ
+3. Cambiar usuario y contraseña de postgress en application.yml y en docker-compose.yml.
+4. Cambiar 3 dtos que no se guardaron sus cambios en el ultimo commit.
+   
+@Data
+
+@Builder
+
+public class TicketResponseList {
+
+    private Long idTicket;
+    
+    private String titulo;
+    
+    private String descripcion;
+    
+    private String estado;
+    
+    private String correoUsuario;   // para filtrar en /my
+    
+    private String correoSoporte;   // si lo incluyes
+    
+    private LocalDateTime fecha;
+    
+    private Long solicitanteId;
+    
+    private Long soporteId;
+    
+}
+
+@Data
+
+public class TicketCreateRequest {
+
+    @NotBlank
+    
+    private String titulo;
+
+    @NotBlank
+    
+    private String descripcion;
+
+    @NotBlank
+    
+    private String estado;
+
+
+    private String correoUsuario;
+
+    private String correoSoporte;
+}
+
+@Data
+
+public class TicketUpdateRequest {
+
+    @NotNull
+    
+    private Long id;
+
+    @NotBlank
+    
+    private String estado;
+
+    String correoSoporte;
+    
+    String descripcion;
+    
+    Long usuarioId;
+    
+    Long tecnicoAsignadoId;
+
+}
+
+6. Crear base de datos en postgress con el nombre supportdb.
+7. Crear nuevos usuarios en insomina con register.
+8. Hacer login y poner token a las rutas
 ## Sistema de Soporte Técnico
 
 ### Descripción
